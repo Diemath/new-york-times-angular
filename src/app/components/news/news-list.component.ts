@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router'
 
-import { INews } from '../../services/news/index'
+import { INews, NewsService } from '../../services/news/index'
 
 @Component({
     selector: 'news-list',
@@ -10,10 +9,12 @@ import { INews } from '../../services/news/index'
 export class NewsListComponent implements OnInit {
     newsList: INews[]
 
-    constructor(private route: ActivatedRoute) {
+    constructor(private newsService: NewsService) {
     }
 
     ngOnInit() {
-        this.newsList = this.route.snapshot.data['newsList']
+        this.newsService.getNews().subscribe(newsList =>  {
+            this.newsList = newsList
+        });
     }
 }
