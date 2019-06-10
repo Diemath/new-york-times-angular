@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ROUTES } from './app.routes';
 
 import { AppComponent } from './app.component';
+import { NavBarComponent } from './components/nav/nav-bar.component';
 
 import {
   NewsListComponent,
@@ -16,6 +17,7 @@ import {
 @NgModule({
   declarations: [
     AppComponent,
+    NavBarComponent,
     NewsListComponent,
     NewsThumbnailComponent
   ],
